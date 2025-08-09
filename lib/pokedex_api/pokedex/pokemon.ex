@@ -8,25 +8,24 @@ defmodule PokedexApi.Pokedex.Pokemon do
     Measurement
   }
 
-  @derive {
-    Jason.Encoder,
-    only: [
-      :id,
-      :name,
-      :abilities,
-      :base_stats,
-      :category,
-      :entry,
-      :evolution,
-      :generation,
-      :measurement,
-      :sprite,
-      :types,
-      :immunities,
-      :resistances,
-      :weaknesses
-    ]
-  }
+  @json_fields [
+    :id,
+    :name,
+    :abilities,
+    :base_stats,
+    :category,
+    :entry,
+    :evolution,
+    :generation,
+    :measurement,
+    :sprite,
+    :types,
+    :immunities,
+    :resistances,
+    :weaknesses
+  ]
+
+  @derive {Jason.Encoder, only: @json_fields}
   schema "pokemon" do
     field :name, :string
     field :category, :string
@@ -39,6 +38,7 @@ defmodule PokedexApi.Pokedex.Pokemon do
     field :weaknesses, {:array, :string}
 
     has_many :abilities, Ability
+
     has_one :base_stats, BaseStats
     has_one :evolution, EvolutionChain
     has_one :measurement, Measurement

@@ -35,20 +35,18 @@ defmodule PokedexApi.Pokedex do
 
   defp normalize_evolution_chain(%Pokemon{evolution: evolution} = pokemon) do
     updated_evolution = %EvolutionChain{
-      pokemon.evolution
+      evolution
       | from: normalize_evolution(evolution.from),
-        to: evolution.to |> Enum.map(&normalize_evolution/1) |> Enum.reject(&is_nil/1)
+        to:
+          case evolution.to || [] do
+            [] -> nil
+            to -> to |> Enum.map(&normalize_evolution/1) |> Enum.reject(&is_nil/1)
+          end
     }
 
     %Pokemon{pokemon | evolution: updated_evolution}
   end
 
-  defp normalize_evolution(%{"id" => id, "name" => name}) do
-    %{
-      id: id,
-      name: name
-    }
-  end
-
+  defp normalize_evolution(%{"id" => id, "name" => name}), do: %{id: id, name: name}
   defp normalize_evolution(_), do: nil
 end

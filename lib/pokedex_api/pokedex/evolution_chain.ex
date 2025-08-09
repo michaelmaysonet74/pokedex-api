@@ -3,10 +3,12 @@ defmodule PokedexApi.Pokedex.EvolutionChain do
 
   alias PokedexApi.Pokedex.Pokemon
 
-  @derive {Jason.Encoder, only: [:from, :to]}
+  @json_fields [:from, :to]
+
+  @derive {Jason.Encoder, only: @json_fields}
   schema "evolution_chains" do
     field :from, :map, source: :from_
-    field :to, {:array, :map}
+    field :to, {:array, :map}, default: nil
 
     belongs_to :pokemon, Pokemon
   end
