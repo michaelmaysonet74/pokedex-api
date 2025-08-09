@@ -11,6 +11,4 @@ config :pokedex_api, PokedexApi.Repo,
 config :pokedex_api, ecto_repos: [PokedexApi.Repo]
 
 config :pokedex_api,
-  port:
-    System.get_env("PORT", "8080")
-    |> String.to_integer()
+  port: System.get_env("PORT", "8080") |> String.to_integer()
