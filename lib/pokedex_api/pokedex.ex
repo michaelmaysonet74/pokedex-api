@@ -12,7 +12,6 @@ defmodule PokedexApi.Pokedex do
   end
 
   def get_pokemon_by(name: name) when is_binary(name) do
-    name = String.capitalize(name)
     query(where: [name: name])
   end
 
