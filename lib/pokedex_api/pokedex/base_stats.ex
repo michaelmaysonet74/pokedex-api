@@ -3,10 +3,16 @@ defmodule PokedexApi.Pokedex.BaseStats do
 
   alias PokedexApi.Pokedex.Pokemon
 
-  @derive {
-    Jason.Encoder,
-    only: [:hp, :attack, :defense, :special_attack, :special_defense, :speed]
-  }
+  @json_fields [
+    :hp,
+    :attack,
+    :defense,
+    :special_attack,
+    :special_defense,
+    :speed
+  ]
+
+  @derive {Jason.Encoder, only: @json_fields}
   schema "base_stats" do
     field :hp, :integer
     field :attack, :integer

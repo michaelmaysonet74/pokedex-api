@@ -3,7 +3,9 @@ defmodule PokedexApi.Pokedex.Ability do
 
   alias PokedexApi.Pokedex.Pokemon
 
-  @derive {Jason.Encoder, only: [:name, :effect, :is_hidden]}
+  @json_fields [:name, :effect, :is_hidden]
+
+  @derive {Jason.Encoder, only: @json_fields}
   schema "abilities" do
     field :name, :string
     field :effect, :string

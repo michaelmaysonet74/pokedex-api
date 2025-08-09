@@ -3,7 +3,9 @@ defmodule PokedexApi.Pokedex.Measurement do
 
   alias PokedexApi.Pokedex.Pokemon
 
-  @derive {Jason.Encoder, only: [:height, :weight]}
+  @json_fields [:height, :weight]
+
+  @derive {Jason.Encoder, only: @json_fields}
   schema "measurements" do
     field :height, :string
     field :weight, :string
