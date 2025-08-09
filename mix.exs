@@ -23,7 +23,6 @@ defmodule PokedexApi.MixProject do
       {:absinthe, "~> 1.7"},
       {:absinthe_plug, "~> 1.5"},
       {:bandit, "~> 1.7"},
-      {:dotenvy, "~> 1.0.0"},
       {:ecto_sql, "~> 3.0"},
       {:jason, "~> 1.4"},
       {:postgrex, ">= 0.0.0"},
