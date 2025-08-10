@@ -80,7 +80,6 @@ query {
     id
     name
     types
-    abilities
     # Add more fields here
   }
 }
@@ -94,7 +93,6 @@ query {
     id
     name
     types
-    abilities
     # Add more fields here
   }
 }
