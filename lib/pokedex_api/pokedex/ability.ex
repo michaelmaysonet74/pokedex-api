@@ -1,5 +1,6 @@
 defmodule PokedexApi.Pokedex.Ability do
   use Ecto.Schema
+  import Ecto.Changeset
 
   alias PokedexApi.Pokedex.Pokemon
 
@@ -12,5 +13,10 @@ defmodule PokedexApi.Pokedex.Ability do
     field :is_hidden, :boolean, default: false
 
     belongs_to :pokemon, Pokemon
+  end
+
+  def changeset(%__MODULE__{} = ability, params \\ %{}) do
+    ability
+    |> cast(params, [:name, :effect, :is_hidden])
   end
 end

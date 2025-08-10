@@ -3,7 +3,6 @@ defmodule PokedexApi.Repo.Migrations.CreateAbilities do
 
   def change do
     create table(:abilities) do
-      add :id, :integer, null: false, primary_key: true
       add :name, :string, null: false
       add :effect, :text, null: true
       add :is_hidden, :boolean, null: false, default: false

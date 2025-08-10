@@ -6,8 +6,8 @@ defmodule PokedexApi.MixProject do
       app: :pokedex_api,
       version: "0.1.0",
       elixir: "~> 1.18",
-      start_permanent: Mix.env() == :prod,
-      deps: deps() ++ dev_deps()
+      start_permanent: Mix.env() == :prod or Mix.env() == :container,
+      deps: deps() ++ container_deps() ++ dev_deps()
     ]
   end
 
@@ -27,6 +27,12 @@ defmodule PokedexApi.MixProject do
       {:jason, "~> 1.4"},
       {:postgrex, ">= 0.0.0"},
       {:validate, "~> 1.3"}
+    ]
+  end
+
+  defp container_deps do
+    [
+      {:ecto_sqlite3, "~> 0.21.0", only: :container}
     ]
   end
 

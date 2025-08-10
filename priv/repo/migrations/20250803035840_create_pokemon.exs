@@ -3,7 +3,6 @@ defmodule PokedexApi.Repo.Migrations.CreatePokemon do
 
   def change do
     create table(:pokemon) do
-      add :id, :integer, null: false, primary_key: true
       add :name, :string, null: false
       add :category, :string, null: false
       add :entry, :text, null: false
