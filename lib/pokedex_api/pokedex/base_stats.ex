@@ -23,4 +23,16 @@ defmodule PokedexApi.Pokedex.BaseStats do
 
     belongs_to :pokemon, Pokemon
   end
+
+  def changeset(%__MODULE__{} = base_stats, params \\ %{}) do
+    base_stats
+    |> Ecto.Changeset.cast(params, [
+      :hp,
+      :attack,
+      :defense,
+      :special_attack,
+      :special_defense,
+      :speed
+    ])
+  end
 end

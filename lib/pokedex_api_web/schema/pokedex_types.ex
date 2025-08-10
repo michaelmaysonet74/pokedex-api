@@ -20,7 +20,7 @@ defmodule PokedexApiWeb.Schema.PokedexTypes do
 
   object :ability do
     field :name, non_null(:string)
-    field :effect, non_null(:string)
+    field :effect, :string
     field :is_hidden, non_null(:boolean)
   end
 

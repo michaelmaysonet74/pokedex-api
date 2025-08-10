@@ -43,4 +43,24 @@ defmodule PokedexApi.Pokedex.Pokemon do
     has_one :evolution, EvolutionChain
     has_one :measurement, Measurement
   end
+
+  def changeset(%__MODULE__{} = pokemon, params \\ %{}) do
+    pokemon
+    |> Ecto.Changeset.cast(params, [
+      :id,
+      :name,
+      :category,
+      :entry,
+      :generation,
+      :sprite,
+      :types,
+      :immunities,
+      :resistances,
+      :weaknesses
+    ])
+    |> Ecto.Changeset.cast_assoc(:abilities)
+    |> Ecto.Changeset.cast_assoc(:base_stats)
+    |> Ecto.Changeset.cast_assoc(:evolution)
+    |> Ecto.Changeset.cast_assoc(:measurement)
+  end
 end

@@ -3,7 +3,6 @@ defmodule PokedexApi.Repo.Migrations.CreateBaseStats do
 
   def change do
     create table(:base_stats) do
-      add :id, :integer, null: false, primary_key: true
       add :hp, :integer, null: false
       add :attack, :integer, null: false
       add :defense, :integer, null: false

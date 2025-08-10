@@ -12,4 +12,9 @@ defmodule PokedexApi.Pokedex.EvolutionChain do
 
     belongs_to :pokemon, Pokemon
   end
+
+  def changeset(%__MODULE__{} = evolution_chain, params \\ %{}) do
+    evolution_chain
+    |> Ecto.Changeset.cast(params, [:from, :to])
+  end
 end

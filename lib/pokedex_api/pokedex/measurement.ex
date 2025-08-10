@@ -12,4 +12,9 @@ defmodule PokedexApi.Pokedex.Measurement do
 
     belongs_to :pokemon, Pokemon
   end
+
+  def changeset(%__MODULE__{} = measurement, params \\ %{}) do
+    measurement
+    |> Ecto.Changeset.cast(params, [:height, :weight])
+  end
 end

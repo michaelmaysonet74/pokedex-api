@@ -13,4 +13,9 @@ defmodule PokedexApi.Pokedex.Ability do
 
     belongs_to :pokemon, Pokemon
   end
+
+  def changeset(%__MODULE__{} = ability, params \\ %{}) do
+    ability
+    |> Ecto.Changeset.cast(params, [:name, :effect, :is_hidden])
+  end
 end

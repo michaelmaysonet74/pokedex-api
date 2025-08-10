@@ -23,3 +23,5 @@ pokedex_api-*.tar
 /tmp/
 
 .DS_Store
+
+/priv/data/
