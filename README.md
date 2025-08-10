@@ -79,7 +79,7 @@ query {
   pokemonById(id: 25) {
     id
     name
-    type
+    types
     abilities
     # Add more fields here
   }
@@ -93,7 +93,7 @@ query {
   pokemonByName(name: "Pikachu") {
     id
     name
-    type
+    types
     abilities
     # Add more fields here
   }
