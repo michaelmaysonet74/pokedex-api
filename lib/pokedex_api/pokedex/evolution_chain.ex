@@ -1,5 +1,6 @@
 defmodule PokedexApi.Pokedex.EvolutionChain do
   use Ecto.Schema
+  import Ecto.Changeset
 
   alias PokedexApi.Pokedex.Pokemon
 
@@ -15,6 +16,6 @@ defmodule PokedexApi.Pokedex.EvolutionChain do
 
   def changeset(%__MODULE__{} = evolution_chain, params \\ %{}) do
     evolution_chain
-    |> Ecto.Changeset.cast(params, [:from, :to])
+    |> cast(params, [:from, :to])
   end
 end

@@ -1,5 +1,6 @@
 defmodule PokedexApi.Pokedex.BaseStats do
   use Ecto.Schema
+  import Ecto.Changeset
 
   alias PokedexApi.Pokedex.Pokemon
 
@@ -26,7 +27,7 @@ defmodule PokedexApi.Pokedex.BaseStats do
 
   def changeset(%__MODULE__{} = base_stats, params \\ %{}) do
     base_stats
-    |> Ecto.Changeset.cast(params, [
+    |> cast(params, [
       :hp,
       :attack,
       :defense,

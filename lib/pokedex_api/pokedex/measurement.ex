@@ -1,5 +1,6 @@
 defmodule PokedexApi.Pokedex.Measurement do
   use Ecto.Schema
+  import Ecto.Changeset
 
   alias PokedexApi.Pokedex.Pokemon
 
@@ -15,6 +16,6 @@ defmodule PokedexApi.Pokedex.Measurement do
 
   def changeset(%__MODULE__{} = measurement, params \\ %{}) do
     measurement
-    |> Ecto.Changeset.cast(params, [:height, :weight])
+    |> cast(params, [:height, :weight])
   end
 end

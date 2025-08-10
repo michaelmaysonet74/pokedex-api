@@ -1,5 +1,6 @@
 defmodule PokedexApi.Pokedex.Pokemon do
   use Ecto.Schema
+  import Ecto.Changeset
 
   alias PokedexApi.Pokedex.{
     Ability,
@@ -46,7 +47,7 @@ defmodule PokedexApi.Pokedex.Pokemon do
 
   def changeset(%__MODULE__{} = pokemon, params \\ %{}) do
     pokemon
-    |> Ecto.Changeset.cast(params, [
+    |> cast(params, [
       :id,
       :name,
       :category,
@@ -58,9 +59,9 @@ defmodule PokedexApi.Pokedex.Pokemon do
       :resistances,
       :weaknesses
     ])
-    |> Ecto.Changeset.cast_assoc(:abilities)
-    |> Ecto.Changeset.cast_assoc(:base_stats)
-    |> Ecto.Changeset.cast_assoc(:evolution)
-    |> Ecto.Changeset.cast_assoc(:measurement)
+    |> cast_assoc(:abilities)
+    |> cast_assoc(:base_stats)
+    |> cast_assoc(:evolution)
+    |> cast_assoc(:measurement)
   end
 end
