@@ -12,7 +12,11 @@ defmodule PokedexApiWeb.Router do
     PokedexApiWeb.Controller.get_pokemon_by_name(conn)
   end
 
-  forward("/graphql", to: Absinthe.Plug, schema: PokedexApiWeb.Schema)
+  forward("/graphql",
+    to: Absinthe.Plug,
+    schema: PokedexApiWeb.Schema,
+    adapter: Absinthe.Adapter.Underscore
+  )
 
   match _ do
     send_resp(conn, 404, "Not Found")

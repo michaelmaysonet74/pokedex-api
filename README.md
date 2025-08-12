@@ -76,7 +76,7 @@ This project also includes support for GraphQL.
 
 ```gql
 query {
-  pokemonById(id: 25) {
+  pokemon_by_id(id: 25) {
     id
     name
     types
@@ -89,7 +89,7 @@ query {
 
 ```gql 
 query {
-  pokemonByName(name: "Pikachu") {
+  pokemon_by_name(name: "Pikachu") {
     id
     name
     types
