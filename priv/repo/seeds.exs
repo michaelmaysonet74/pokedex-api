@@ -1,5 +1,5 @@
 alias PokedexApi.Repo
-alias PokedexApi.Pokedex.Pokemon
+alias PokedexSchema.Pokemon
 
 "priv/repo/data/pokedex.json"
 |> File.read!()
