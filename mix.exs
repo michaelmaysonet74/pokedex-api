@@ -26,7 +26,8 @@ defmodule PokedexApi.MixProject do
       {:ecto_sql, "~> 3.0"},
       {:jason, "~> 1.4"},
       {:postgrex, ">= 0.0.0"},
-      {:validate, "~> 1.3"}
+      {:pokedex_schema,
+       git: "https://github.com/michaelmaysonet74/pokedex-schema.git", tag: "v0.1.0"}
     ]
   end
 

@@ -1,7 +1,7 @@
 defmodule PokedexApi.Pokedex do
   import Ecto.Query
 
-  alias PokedexApi.Pokedex.{EvolutionChain, Pokemon}
+  alias PokedexSchema.{EvolutionChain, Pokemon}
   alias PokedexApi.Repo
 
   def get_pokemon_by(id: id) when is_binary(id) do
