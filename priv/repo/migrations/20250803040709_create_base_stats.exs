@@ -9,7 +9,7 @@ defmodule PokedexApi.Repo.Migrations.CreateBaseStats do
       add :special_attack, :integer, null: false
       add :special_defense, :integer, null: false
       add :speed, :integer, null: false
-      add :pokemon_id, :integer, null: false, references: :pokemon
+      add :pokemon_id, references(:pokemon)
     end
   end
 end

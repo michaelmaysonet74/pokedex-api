@@ -6,7 +6,7 @@ defmodule PokedexApi.Repo.Migrations.CreateAbilities do
       add :name, :string, null: false
       add :effect, :text, null: true
       add :is_hidden, :boolean, null: false, default: false
-      add :pokemon_id, :integer, null: false, references: :pokemon
+      add :pokemon_id, references(:pokemon)
     end
   end
 end

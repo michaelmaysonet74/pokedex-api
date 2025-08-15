@@ -3,9 +3,9 @@ defmodule PokedexApi.Repo.Migrations.CreateEvolutionChains do
 
   def change do
     create table(:evolution_chains) do
-      add :from_, :jsonb, null: true
-      add :to, {:array, :jsonb}, null: true
-      add :pokemon_id, :integer, null: false, references: :pokemon
+      add :from, :map, null: false
+      add :to, {:array, :map}, null: false
+      add :pokemon_id, references(:pokemon)
     end
   end
 end

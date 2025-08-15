@@ -27,7 +27,7 @@ defmodule PokedexApi.MixProject do
       {:jason, "~> 1.4"},
       {:postgrex, ">= 0.0.0"},
       {:pokedex_schema,
-       git: "https://github.com/michaelmaysonet74/pokedex-schema.git", tag: "v0.1.0"}
+       git: "https://github.com/michaelmaysonet74/pokedex-schema.git", tag: "v0.2.0"}
     ]
   end
 
