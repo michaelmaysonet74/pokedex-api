@@ -5,7 +5,7 @@ defmodule PokedexApi.Repo.Migrations.CreateMeasurements do
     create table(:measurements) do
       add :height, :string, null: false
       add :weight, :string, null: false
-      add :pokemon_id, :integer, null: false, references: :pokemon
+      add :pokemon_id, references(:pokemon)
     end
   end
 end
