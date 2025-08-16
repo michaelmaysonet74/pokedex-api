@@ -11,5 +11,6 @@ else
     password: System.get_env("POKEDEX_DB_PASSWORD", "postgres"),
     hostname: System.get_env("POKEDEX_DB_HOSTNAME", "localhost"),
     port: System.get_env("POKEDEX_DB_PORT", "5432") |> String.to_integer(),
-    pool_size: System.get_env("POKEDEX_DB_POOL_SIZE", "10") |> String.to_integer()
+    pool_size: System.get_env("POKEDEX_DB_POOL_SIZE", "10") |> String.to_integer(),
+    prepare: if(config_env() == :dev, do: :unnamed, else: :named)
 end
