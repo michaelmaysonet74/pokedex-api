@@ -6,13 +6,13 @@ defmodule PokedexApi.Pokedex do
 
   def get_pokemon_by(id: id) when is_binary(id) do
     case Integer.parse(id) do
-      {int, ""} -> query(where: [id: int])
+      {id, _} -> query(where: [id: id])
       _ -> {:error, :invalid_input}
     end
   end
 
   def get_pokemon_by(name: name) when is_binary(name) do
-    query(where: [name: name])
+    query(where: dynamic([p], ilike(p.name, ^name)))
   end
 
   def get_pokemon_by(_), do: {:error, :invalid_input}
