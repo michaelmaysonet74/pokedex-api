@@ -12,7 +12,8 @@ defmodule PokedexApi.Pokedex do
   end
 
   def get_pokemon_by(name: name) when is_binary(name) do
-    query(where: dynamic([p], ilike(p.name, ^name)))
+    name = String.downcase(name)
+    query(where: dynamic([p], fragment("lower(?)", p.name) == ^name))
   end
 
   def get_pokemon_by(_), do: {:error, :invalid_input}
