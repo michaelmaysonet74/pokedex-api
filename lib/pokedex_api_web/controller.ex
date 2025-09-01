@@ -16,16 +16,13 @@ defmodule PokedexApiWeb.Controller do
   defp handle_result(conn, result) do
     case result do
       {:ok, pokemon} ->
-        conn
-        |> JSON.send(pokemon)
+        JSON.send(conn, pokemon)
 
       {:error, :not_found} ->
-        conn
-        |> send_resp(404, "Not Found")
+        send_resp(conn, 404, "Not Found")
 
       {:error, :invalid_input} ->
-        conn
-        |> send_resp(400, "Bad Request")
+        send_resp(conn, 400, "Bad Request")
     end
   end
 end
