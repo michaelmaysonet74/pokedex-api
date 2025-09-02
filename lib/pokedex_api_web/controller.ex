@@ -1,6 +1,4 @@
 defmodule PokedexApiWeb.Controller do
-  import Plug.Conn
-
   alias PokedexApi.Pokedex
   alias PokedexApiWeb.JSON
 
@@ -19,10 +17,10 @@ defmodule PokedexApiWeb.Controller do
         JSON.send(conn, pokemon)
 
       {:error, :not_found} ->
-        send_resp(conn, 404, "Not Found")
+        JSON.send(conn, "Not Found", 404)
 
       {:error, :invalid_input} ->
-        send_resp(conn, 400, "Bad Request")
+        JSON.send(conn, "Bad Request", 400)
     end
   end
 end
