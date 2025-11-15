@@ -6,7 +6,7 @@ Microservice for fetching Pokémon data.
 
 ### Requirements
 
-Elixir `v1.18.0`
+Elixir `v1.19.0`
 
 ### Usage
 
