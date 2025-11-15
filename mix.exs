@@ -4,8 +4,8 @@ defmodule PokedexApi.MixProject do
   def project do
     [
       app: :pokedex_api,
-      version: "1.2.0",
-      elixir: "~> 1.18",
+      version: "1.3.0",
+      elixir: "~> 1.19",
       start_permanent: Mix.env() == :prod or Mix.env() == :container,
       deps: deps() ++ container_deps() ++ dev_deps()
     ]

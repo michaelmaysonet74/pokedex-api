@@ -34,7 +34,7 @@ defmodule PokedexApi.Pokedex do
     end
   end
 
-  defp normalize_evolution_chain(%Pokemon{evolution: evolution} = pokemon) do
+  defp normalize_evolution_chain(%Pokemon{evolution: %EvolutionChain{} = evolution} = pokemon) do
     updated_evolution = %EvolutionChain{
       evolution
       | from: normalize_evolution(evolution.from),
